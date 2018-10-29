@@ -1,0 +1,956 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0xa7dd2890, pid=5630, tid=2161208128
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_91-b14) (build 1.8.0_91-b14)
+# Java VM: Java HotSpot(TM) Server VM (25.91-b14 mixed mode linux-x86 )
+# Problematic frame:
+# J 3925 C1 org.springframework.beans.factory.support.DefaultListableBeanFactory.doGetBeanNamesForType(Lorg/springframework/core/ResolvableType;ZZ)[Ljava/lang/String; (593 bytes) @ 0xa7dd2890 [0xa7dd21c0+0x6d0]
+#
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x81599000):  JavaThread "http-nio-8761-exec-1" daemon [_thread_in_Java, id=5717, stack(0x80cc6000,0x80d17000)]
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 1 (SEGV_MAPERR), si_addr: 0xc883b5d7
+
+Registers:
+EAX=0x892b5821, EBX=0x00000000, ECX=0xc883b5af, EDX=0x87e4e948
+ESP=0x80d155e0, EBP=0x80d15774, ESI=0x87daaf68, EDI=0x87daafa8
+EIP=0xa7dd2890, EFLAGS=0x00010286, CR2=0xc883b5d7
+
+Top of Stack: (sp=0x80d155e0)
+0x80d155e0:   9daf83c0 0000000f 80d15604 81599000
+0x80d155f0:   a7515b94 000000b8 81599828 83fc4108
+0x80d15600:   80d15640 b6b11a36 82f12048 000000b8
+0x80d15610:   80d1562c fffffffe 80d15824 0000000a
+0x80d15620:   00000009 b6a0e9de 9daf83c0 87cf62a8
+0x80d15630:   9daf83f0 9daf8408 87e4e948 87e49500
+0x80d15640:   892af450 00000000 00000000 9daf84a0
+0x80d15650:   9daf8588 87e489a8 80d15688 b6c7edbe 
+
+Instructions: (pc=0xa7dd2890)
+0xa7dd2870:   2c 35 bf ff 83 f8 00 75 14 b9 e0 24 aa 83 81 89
+0xa7dd2880:   e0 00 00 00 00 01 00 00 e9 9d 00 00 00 8b 48 04
+0xa7dd2890:   81 79 28 68 ae 1b 84 0f 85 77 00 00 00 b9 e0 24
+0xa7dd28a0:   aa 83 8b 70 04 3b b1 e8 00 00 00 75 0c 83 81 ec 
+
+Register to memory mapping:
+
+EAX=0x892b5821 is pointing into object: 0x892b5820
+org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader$ConfigurationClassBeanDefinition 
+ - klass: 'org/springframework/context/annotation/ConfigurationClassBeanDefinitionReader$ConfigurationClassBeanDefinition'
+EBX=0x00000000 is an unknown value
+ECX=0xc883b5af is an unknown value
+EDX=0x87e4e948 is an oop
+java.lang.String 
+ - klass: 'java/lang/String'
+ESP=0x80d155e0 is pointing into the stack for thread: 0x81599000
+EBP=0x80d15774 is pointing into the stack for thread: 0x81599000
+ESI=0x87daaf68 is an oop
+java.util.concurrent.ConcurrentHashMap 
+ - klass: 'java/util/concurrent/ConcurrentHashMap'
+EDI=0x87daafa8 is an oop
+[Ljava.util.concurrent.ConcurrentHashMap$Node; 
+ - klass: 'java/util/concurrent/ConcurrentHashMap$Node'[]
+ - length: 512
+
+
+Stack: [0x80cc6000,0x80d17000],  sp=0x80d155e0,  free space=317k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+J 3925 C1 org.springframework.beans.factory.support.DefaultListableBeanFactory.doGetBeanNamesForType(Lorg/springframework/core/ResolvableType;ZZ)[Ljava/lang/String; (593 bytes) @ 0xa7dd2890 [0xa7dd21c0+0x6d0]
+J 4287 C1 org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(Ljava/lang/Class;ZZ)[Ljava/lang/String; (101 bytes) @ 0xa7e7c820 [0xa7e7c600+0x220]
+j  org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(Ljava/lang/Class;ZZ)Ljava/util/Map;+4
+j  org.springframework.context.support.AbstractApplicationContext.getBeansOfType(Ljava/lang/Class;ZZ)Ljava/util/Map;+11
+j  org.springframework.beans.factory.BeanFactoryUtils.beansOfTypeIncludingAncestors(Lorg/springframework/beans/factory/ListableBeanFactory;Ljava/lang/Class;ZZ)Ljava/util/Map;+22
+j  org.springframework.web.servlet.DispatcherServlet.initHandlerMappings(Lorg/springframework/context/ApplicationContext;)V+17
+j  org.springframework.web.servlet.DispatcherServlet.initStrategies(Lorg/springframework/context/ApplicationContext;)V+17
+j  org.springframework.web.servlet.DispatcherServlet.onRefresh(Lorg/springframework/context/ApplicationContext;)V+2
+j  org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext()Lorg/springframework/web/context/WebApplicationContext;+92
+j  org.springframework.web.servlet.FrameworkServlet.initServletBean()V+90
+j  org.springframework.web.servlet.HttpServletBean.init()V+179
+j  javax.servlet.GenericServlet.init(Ljavax/servlet/ServletConfig;)V+6
+j  org.apache.catalina.core.StandardWrapper.initServlet(Ljavax/servlet/Servlet;)V+79
+j  org.apache.catalina.core.StandardWrapper.allocate()Ljavax/servlet/Servlet;+156
+j  org.apache.catalina.core.StandardWrapperValve.invoke(Lorg/apache/catalina/connector/Request;Lorg/apache/catalina/connector/Response;)V+221
+j  org.apache.catalina.core.StandardContextValve.invoke(Lorg/apache/catalina/connector/Request;Lorg/apache/catalina/connector/Response;)V+166
+j  org.apache.catalina.authenticator.AuthenticatorBase.invoke(Lorg/apache/catalina/connector/Request;Lorg/apache/catalina/connector/Response;)V+260
+j  org.apache.catalina.core.StandardHostValve.invoke(Lorg/apache/catalina/connector/Request;Lorg/apache/catalina/connector/Response;)V+138
+j  org.apache.catalina.valves.ErrorReportValve.invoke(Lorg/apache/catalina/connector/Request;Lorg/apache/catalina/connector/Response;)V+6
+j  org.apache.catalina.core.StandardEngineValve.invoke(Lorg/apache/catalina/connector/Request;Lorg/apache/catalina/connector/Response;)V+71
+j  org.apache.catalina.connector.CoyoteAdapter.service(Lorg/apache/coyote/Request;Lorg/apache/coyote/Response;)V+199
+j  org.apache.coyote.http11.Http11Processor.service(Lorg/apache/tomcat/util/net/SocketWrapperBase;)Lorg/apache/tomcat/util/net/AbstractEndpoint$Handler$SocketState;+806
+j  org.apache.coyote.AbstractProcessorLight.process(Lorg/apache/tomcat/util/net/SocketWrapperBase;Lorg/apache/tomcat/util/net/SocketEvent;)Lorg/apache/tomcat/util/net/AbstractEndpoint$Handler$SocketState;+113
+j  org.apache.coyote.AbstractProtocol$ConnectionHandler.process(Lorg/apache/tomcat/util/net/SocketWrapperBase;Lorg/apache/tomcat/util/net/SocketEvent;)Lorg/apache/tomcat/util/net/AbstractEndpoint$Handler$SocketState;+414
+j  org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun()V+191
+j  org.apache.tomcat.util.net.SocketProcessorBase.run()V+21
+j  java.util.concurrent.ThreadPoolExecutor.runWorker(Ljava/util/concurrent/ThreadPoolExecutor$Worker;)V+95
+j  java.util.concurrent.ThreadPoolExecutor$Worker.run()V+5
+j  org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run()V+4
+j  java.lang.Thread.run()V+11
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x4fddef]  JavaCalls::call_helper(JavaValue*, methodHandle*, JavaCallArguments*, Thread*)+0x101f
+V  [libjvm.so+0x74e7f9]  os::os_exception_wrapper(void (*)(JavaValue*, methodHandle*, JavaCallArguments*, Thread*), JavaValue*, methodHandle*, JavaCallArguments*, Thread*)+0x19
+V  [libjvm.so+0x4fe1fc]  JavaCalls::call_virtual(JavaValue*, KlassHandle, Symbol*, Symbol*, JavaCallArguments*, Thread*)+0x25c
+V  [libjvm.so+0x4fe63b]  JavaCalls::call_virtual(JavaValue*, Handle, KlassHandle, Symbol*, Symbol*, Thread*)+0x4b
+V  [libjvm.so+0x591230]  thread_entry(JavaThread*, Thread*)+0x90
+V  [libjvm.so+0x8839a9]  JavaThread::thread_main_inner()+0x109
+V  [libjvm.so+0x883b2b]  JavaThread::run()+0x14b
+V  [libjvm.so+0x755d19]  java_start(Thread*)+0x119
+C  [libpthread.so.0+0x6386]  start_thread+0xd6
+C  [libc.so.6+0xf856e]  clone+0x5e
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0xb650d800 JavaThread "DestroyJavaVM" [_thread_blocked, id=5637, stack(0xb66e8000,0xb6739000)]
+  0x8159e000 JavaThread "http-nio-8761-AsyncTimeout" daemon [_thread_blocked, id=5730, stack(0x807a9000,0x807fa000)]
+  0x81597c00 JavaThread "http-nio-8761-Acceptor-0" daemon [_thread_in_native, id=5729, stack(0x807fa000,0x8084b000)]
+  0x815c4000 JavaThread "http-nio-8761-ClientPoller-1" daemon [_thread_in_native, id=5728, stack(0x8084b000,0x8089c000)]
+  0x815b5800 JavaThread "http-nio-8761-ClientPoller-0" daemon [_thread_in_native, id=5727, stack(0x8089c000,0x808ed000)]
+  0x815a7400 JavaThread "http-nio-8761-exec-10" daemon [_thread_blocked, id=5726, stack(0x808ed000,0x8093e000)]
+  0x815a5c00 JavaThread "http-nio-8761-exec-9" daemon [_thread_blocked, id=5725, stack(0x8093e000,0x8098f000)]
+  0x815a4400 JavaThread "http-nio-8761-exec-8" daemon [_thread_blocked, id=5724, stack(0x8098f000,0x809e0000)]
+  0x815a2800 JavaThread "http-nio-8761-exec-7" daemon [_thread_blocked, id=5723, stack(0x809e0000,0x80a31000)]
+  0x815a1400 JavaThread "http-nio-8761-exec-6" daemon [_thread_blocked, id=5722, stack(0x80a31000,0x80a82000)]
+  0x8159fc00 JavaThread "http-nio-8761-exec-5" daemon [_thread_blocked, id=5721, stack(0x80a82000,0x80ad3000)]
+  0x8159f000 JavaThread "http-nio-8761-exec-4" daemon [_thread_blocked, id=5720, stack(0x80ad3000,0x80b24000)]
+  0x8159a800 JavaThread "http-nio-8761-exec-3" daemon [_thread_blocked, id=5719, stack(0x80c24000,0x80c75000)]
+  0x81599c00 JavaThread "http-nio-8761-exec-2" daemon [_thread_blocked, id=5718, stack(0x80c75000,0x80cc6000)]
+=>0x81599000 JavaThread "http-nio-8761-exec-1" daemon [_thread_in_Java, id=5717, stack(0x80cc6000,0x80d17000)]
+  0x81585c00 JavaThread "NioBlockingSelector.BlockPoller-1" daemon [_thread_in_native, id=5716, stack(0x80d17000,0x80d68000)]
+  0x81572c00 JavaThread "Eureka-CacheFillTimer" daemon [_thread_blocked, id=5714, stack(0x80db9000,0x80e0a000)]
+  0x81571c00 JavaThread "Eureka-PeerNodesUpdater" daemon [_thread_blocked, id=5713, stack(0x80e0a000,0x80e5b000)]
+  0x81570000 JavaThread "TaskNonBatchingWorker-localhost-0" daemon [_thread_blocked, id=5712, stack(0x80e5b000,0x80eac000)]
+  0x8156f000 JavaThread "TaskAcceptor-localhost" daemon [_thread_blocked, id=5711, stack(0x80eac000,0x80efd000)]
+  0x8156d000 JavaThread "TaskBatchingWorker-target_localhost-19" daemon [_thread_blocked, id=5710, stack(0x80efd000,0x80f4e000)]
+  0x8156b800 JavaThread "TaskBatchingWorker-target_localhost-18" daemon [_thread_blocked, id=5709, stack(0x80f4e000,0x80f9f000)]
+  0x8156a000 JavaThread "TaskBatchingWorker-target_localhost-17" daemon [_thread_blocked, id=5708, stack(0x80f9f000,0x80ff0000)]
+  0x81568c00 JavaThread "TaskBatchingWorker-target_localhost-16" daemon [_thread_blocked, id=5707, stack(0x80ff0000,0x81041000)]
+  0x81567400 JavaThread "TaskBatchingWorker-target_localhost-15" daemon [_thread_blocked, id=5706, stack(0x81041000,0x81092000)]
+  0x81565c00 JavaThread "TaskBatchingWorker-target_localhost-14" daemon [_thread_blocked, id=5705, stack(0x81092000,0x810e3000)]
+  0x81564400 JavaThread "TaskBatchingWorker-target_localhost-13" daemon [_thread_blocked, id=5704, stack(0x810e3000,0x81134000)]
+  0x81562c00 JavaThread "TaskBatchingWorker-target_localhost-12" daemon [_thread_blocked, id=5703, stack(0x81134000,0x81185000)]
+  0x81561800 JavaThread "TaskBatchingWorker-target_localhost-11" daemon [_thread_blocked, id=5702, stack(0x81185000,0x811d6000)]
+  0x81560000 JavaThread "TaskBatchingWorker-target_localhost-10" daemon [_thread_blocked, id=5701, stack(0x811d6000,0x81227000)]
+  0x8155e800 JavaThread "TaskBatchingWorker-target_localhost-9" daemon [_thread_blocked, id=5700, stack(0x81227000,0x81278000)]
+  0x8155d400 JavaThread "TaskBatchingWorker-target_localhost-8" daemon [_thread_blocked, id=5699, stack(0x81c40000,0x81c91000)]
+  0x8155c400 JavaThread "TaskBatchingWorker-target_localhost-7" daemon [_thread_blocked, id=5698, stack(0x81c91000,0x81ce2000)]
+  0x8155ac00 JavaThread "TaskBatchingWorker-target_localhost-6" daemon [_thread_blocked, id=5697, stack(0x81278000,0x812c9000)]
+  0x81559400 JavaThread "TaskBatchingWorker-target_localhost-5" daemon [_thread_blocked, id=5696, stack(0x812c9000,0x8131a000)]
+  0x81557c00 JavaThread "TaskBatchingWorker-target_localhost-4" daemon [_thread_blocked, id=5695, stack(0x8131a000,0x8136b000)]
+  0x81556800 JavaThread "TaskBatchingWorker-target_localhost-3" daemon [_thread_blocked, id=5694, stack(0x8136b000,0x813bc000)]
+  0x81555000 JavaThread "TaskBatchingWorker-target_localhost-2" daemon [_thread_blocked, id=5693, stack(0x813bc000,0x8140d000)]
+  0x81553800 JavaThread "TaskBatchingWorker-target_localhost-1" daemon [_thread_blocked, id=5692, stack(0x8140d000,0x8145e000)]
+  0x81551c00 JavaThread "TaskBatchingWorker-target_localhost-0" daemon [_thread_blocked, id=5691, stack(0x8145e000,0x814af000)]
+  0x8154dc00 JavaThread "StatsMonitor-0" daemon [_thread_blocked, id=5690, stack(0x814af000,0x81500000)]
+  0x81549c00 JavaThread "TaskAcceptor-target_localhost" daemon [_thread_blocked, id=5689, stack(0x8164e000,0x8169f000)]
+  0x81538800 JavaThread "Eureka-JerseyClient-Conn-Cleaner2" daemon [_thread_blocked, id=5688, stack(0x8169f000,0x816f0000)]
+  0x8195ac00 JavaThread "Eureka-MeasureRateTimer" daemon [_thread_blocked, id=5686, stack(0x81a2e000,0x81a7f000)]
+  0x81959800 JavaThread "ReplicaAwareInstanceRegistry - RenewalThresholdUpdater" daemon [_thread_blocked, id=5685, stack(0x81bac000,0x81bfd000)]
+  0x81958000 JavaThread "Eureka-MeasureRateTimer" daemon [_thread_blocked, id=5684, stack(0x81e0f000,0x81e60000)]
+  0x81956800 JavaThread "Eureka-EvictionTimer" daemon [_thread_blocked, id=5683, stack(0x81faf000,0x82000000)]
+  0x81954c00 JavaThread "Eureka-DeltaRetentionTimer" daemon [_thread_blocked, id=5682, stack(0x8220d000,0x8225e000)]
+  0x84656c00 JavaThread "container-0" [_thread_blocked, id=5679, stack(0x8225e000,0x822af000)]
+  0x830cfc00 JavaThread "ContainerBackgroundProcessor[StandardEngine[Tomcat]]" daemon [_thread_blocked, id=5678, stack(0x822af000,0x82300000)]
+  0x87517000 JavaThread "SimplePauseDetectorThread_0" daemon [_thread_blocked, id=5676, stack(0x82a0d000,0x82a5e000)]
+  0x87515c00 JavaThread "Thread-5" daemon [_thread_blocked, id=5675, stack(0x82a5e000,0x82aaf000)]
+  0x82ba4800 JavaThread "spring.cloud.inetutils" daemon [_thread_blocked, id=5673, stack(0x82aaf000,0x82b00000)]
+  0x87438c00 JavaThread "Service Thread" daemon [_thread_blocked, id=5646, stack(0x8565c000,0x856ad000)]
+  0x87435c00 JavaThread "C1 CompilerThread1" daemon [_thread_blocked, id=5645, stack(0x856ad000,0x8572e000)]
+  0x87433c00 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=5644, stack(0x8572e000,0x857af000)]
+  0x87432400 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=5643, stack(0x857af000,0x85800000)]
+  0x87417c00 JavaThread "Finalizer" daemon [_thread_blocked, id=5642, stack(0x85a00000,0x85a51000)]
+  0x87415000 JavaThread "Reference Handler" daemon [_thread_blocked, id=5641, stack(0x85a51000,0x85aa2000)]
+
+Other Threads:
+  0x87410800 VMThread [stack: 0x85aa2000,0x85b23000] [id=5640]
+  0x8743b000 WatcherThread [stack: 0x855db000,0x8565c000] [id=5647]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ PSYoungGen      total 158208K, used 27233K [0x9c800000, 0xa7000000, 0xa7000000)
+  eden space 147456K, 13% used [0x9c800000,0x9db1f640,0xa5800000)
+  from space 10752K, 71% used [0xa5800000,0xa5f78e78,0xa6280000)
+  to   space 11264K, 0% used [0xa6500000,0xa6500000,0xa7000000)
+ ParOldGen       total 41216K, used 28956K [0x87800000, 0x8a040000, 0x9c800000)
+  object space 41216K, 70% used [0x87800000,0x89447288,0x8a040000)
+ Metaspace       used 34455K, capacity 35614K, committed 35712K, reserved 36144K
+
+Card table byte_map: [0xa7043000,0xa7140000] byte_map_base: 0xa6c07000
+
+Marking Bits: (ParMarkBitMap*) 0xb7189bc0
+ Begin Bits: [0x86340000, 0x86b20000)
+ End Bits:   [0x86b20000, 0x87300000)
+
+Polling page: 0xb77b4000
+
+CodeCache: size=245760Kb used=12085Kb max_used=12279Kb free=233674Kb
+ bounds [0xa7500000, 0xa8108000, 0xb6500000]
+ total_blobs=5043 nmethods=4825 adapters=132
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 425,528 Thread 0x87433c00 5568  s    4       java.util.Hashtable::get (69 bytes)
+Event: 425,536 Thread 0x87433c00 nmethod 5568 0xa7c2df88 code [0xa7c2e0c0, 0xa7c2e550]
+Event: 425,641 Thread 0x87435c00 5571       1       ch.qos.logback.core.UnsynchronizedAppenderBase::isStarted (5 bytes)
+Event: 425,643 Thread 0x87435c00 nmethod 5571 0xa7627148 code [0xa7627240, 0xa76272e0]
+Event: 425,682 Thread 0x87433c00 5572       4       org.springframework.core.annotation.AnnotatedElementUtils::hasSearchableMetaAnnotations (64 bytes)
+Event: 425,684 Thread 0x87435c00 5573       3       java.util.HashMap::putVal (300 bytes)
+Event: 425,688 Thread 0x87435c00 nmethod 5573 0xa7e883c8 code [0xa7e885e0, 0xa7e89438]
+Event: 425,700 Thread 0x87433c00 nmethod 5572 0xa7f4fec8 code [0xa7f50020, 0xa7f50410]
+Event: 425,700 Thread 0x87433c00 5574       4       java.beans.MethodRef::set (58 bytes)
+Event: 425,706 Thread 0x87433c00 nmethod 5574 0xa7d9fc08 code [0xa7d9fd20, 0xa7d9ff5c]
+
+GC Heap History (10 events):
+Event: 17,204 GC heap before
+{Heap before GC invocations=17 (full 2):
+ PSYoungGen      total 102656K, used 6389K [0x9c800000, 0xa5c00000, 0xa7000000)
+  eden space 96256K, 0% used [0x9c800000,0x9c800000,0xa2600000)
+  from space 6400K, 99% used [0xa2600000,0xa2c3d728,0xa2c40000)
+  to   space 9216K, 0% used [0xa5300000,0xa5300000,0xa5c00000)
+ ParOldGen       total 20736K, used 17588K [0x87800000, 0x88c40000, 0x9c800000)
+  object space 20736K, 84% used [0x87800000,0x8892d248,0x88c40000)
+ Metaspace       used 23443K, capacity 24190K, committed 24320K, reserved 24880K
+Event: 17,422 GC heap after
+Heap after GC invocations=17 (full 2):
+ PSYoungGen      total 102656K, used 0K [0x9c800000, 0xa5c00000, 0xa7000000)
+  eden space 96256K, 0% used [0x9c800000,0x9c800000,0xa2600000)
+  from space 6400K, 0% used [0xa2600000,0xa2600000,0xa2c40000)
+  to   space 9216K, 0% used [0xa5300000,0xa5300000,0xa5c00000)
+ ParOldGen       total 41216K, used 20037K [0x87800000, 0x8a040000, 0x9c800000)
+  object space 41216K, 48% used [0x87800000,0x88b917a0,0x8a040000)
+ Metaspace       used 23443K, capacity 24190K, committed 24320K, reserved 24880K
+}
+Event: 19,683 GC heap before
+{Heap before GC invocations=18 (full 2):
+ PSYoungGen      total 102656K, used 96256K [0x9c800000, 0xa5c00000, 0xa7000000)
+  eden space 96256K, 100% used [0x9c800000,0xa2600000,0xa2600000)
+  from space 6400K, 0% used [0xa2600000,0xa2600000,0xa2c40000)
+  to   space 9216K, 0% used [0xa5300000,0xa5300000,0xa5c00000)
+ ParOldGen       total 41216K, used 20037K [0x87800000, 0x8a040000, 0x9c800000)
+  object space 41216K, 48% used [0x87800000,0x88b917a0,0x8a040000)
+ Metaspace       used 24641K, capacity 25538K, committed 25600K, reserved 25904K
+Event: 19,714 GC heap after
+Heap after GC invocations=18 (full 2):
+ PSYoungGen      total 129792K, used 5706K [0x9c800000, 0xa58c0000, 0xa7000000)
+  eden space 123904K, 0% used [0x9c800000,0x9c800000,0xa4100000)
+  from space 5888K, 96% used [0xa5300000,0xa58928b8,0xa58c0000)
+  to   space 9472K, 0% used [0xa4640000,0xa4640000,0xa4f80000)
+ ParOldGen       total 41216K, used 20041K [0x87800000, 0x8a040000, 0x9c800000)
+  object space 41216K, 48% used [0x87800000,0x88b927a0,0x8a040000)
+ Metaspace       used 24641K, capacity 25538K, committed 25600K, reserved 25904K
+}
+Event: 22,738 GC heap before
+{Heap before GC invocations=19 (full 2):
+ PSYoungGen      total 129792K, used 129610K [0x9c800000, 0xa58c0000, 0xa7000000)
+  eden space 123904K, 100% used [0x9c800000,0xa4100000,0xa4100000)
+  from space 5888K, 96% used [0xa5300000,0xa58928b8,0xa58c0000)
+  to   space 9472K, 0% used [0xa4640000,0xa4640000,0xa4f80000)
+ ParOldGen       total 41216K, used 20041K [0x87800000, 0x8a040000, 0x9c800000)
+  object space 41216K, 48% used [0x87800000,0x88b927a0,0x8a040000)
+ Metaspace       used 28735K, capacity 29678K, committed 29824K, reserved 30000K
+Event: 22,786 GC heap after
+Heap after GC invocations=19 (full 2):
+ PSYoungGen      total 138752K, used 9468K [0x9c800000, 0xa6d00000, 0xa7000000)
+  eden space 129280K, 0% used [0x9c800000,0x9c800000,0xa4640000)
+  from space 9472K, 99% used [0xa4640000,0xa4f7f1c8,0xa4f80000)
+  to   space 10752K, 0% used [0xa6280000,0xa6280000,0xa6d00000)
+ ParOldGen       total 41216K, used 20115K [0x87800000, 0x8a040000, 0x9c800000)
+  object space 41216K, 48% used [0x87800000,0x88ba4e60,0x8a040000)
+ Metaspace       used 28735K, capacity 29678K, committed 29824K, reserved 30000K
+}
+Event: 25,414 GC heap before
+{Heap before GC invocations=20 (full 2):
+ PSYoungGen      total 138752K, used 138748K [0x9c800000, 0xa6d00000, 0xa7000000)
+  eden space 129280K, 100% used [0x9c800000,0xa4640000,0xa4640000)
+  from space 9472K, 99% used [0xa4640000,0xa4f7f1c8,0xa4f80000)
+  to   space 10752K, 0% used [0xa6280000,0xa6280000,0xa6d00000)
+ ParOldGen       total 41216K, used 20115K [0x87800000, 0x8a040000, 0x9c800000)
+  object space 41216K, 48% used [0x87800000,0x88ba4e60,0x8a040000)
+ Metaspace       used 30559K, capacity 31656K, committed 31744K, reserved 32048K
+Event: 25,480 GC heap after
+Heap after GC invocations=20 (full 2):
+ PSYoungGen      total 158208K, used 6056K [0x9c800000, 0xa7000000, 0xa7000000)
+  eden space 147456K, 0% used [0x9c800000,0x9c800000,0xa5800000)
+  from space 10752K, 56% used [0xa6280000,0xa686a3f0,0xa6d00000)
+  to   space 10752K, 0% used [0xa5800000,0xa5800000,0xa6280000)
+ ParOldGen       total 41216K, used 26188K [0x87800000, 0x8a040000, 0x9c800000)
+  object space 41216K, 63% used [0x87800000,0x89193150,0x8a040000)
+ Metaspace       used 30559K, capacity 31656K, committed 31744K, reserved 32048K
+}
+Event: 32,675 GC heap before
+{Heap before GC invocations=21 (full 2):
+ PSYoungGen      total 158208K, used 153512K [0x9c800000, 0xa7000000, 0xa7000000)
+  eden space 147456K, 100% used [0x9c800000,0xa5800000,0xa5800000)
+  from space 10752K, 56% used [0xa6280000,0xa686a3f0,0xa6d00000)
+  to   space 10752K, 0% used [0xa5800000,0xa5800000,0xa6280000)
+ ParOldGen       total 41216K, used 26188K [0x87800000, 0x8a040000, 0x9c800000)
+  object space 41216K, 63% used [0x87800000,0x89193150,0x8a040000)
+ Metaspace       used 33991K, capacity 35163K, committed 35200K, reserved 36144K
+Event: 32,719 GC heap after
+Heap after GC invocations=21 (full 2):
+ PSYoungGen      total 158208K, used 7651K [0x9c800000, 0xa7000000, 0xa7000000)
+  eden space 147456K, 0% used [0x9c800000,0x9c800000,0xa5800000)
+  from space 10752K, 71% used [0xa5800000,0xa5f78e78,0xa6280000)
+  to   space 11264K, 0% used [0xa6500000,0xa6500000,0xa7000000)
+ ParOldGen       total 41216K, used 28956K [0x87800000, 0x8a040000, 0x9c800000)
+  object space 41216K, 70% used [0x87800000,0x89447288,0x8a040000)
+ Metaspace       used 33991K, capacity 35163K, committed 35200K, reserved 36144K
+}
+
+Deoptimization events (10 events):
+Event: 27,823 Thread 0xb650d800 Uncommon trap: reason=unstable_if action=reinterpret pc=0xa7bf242c method=java.util.concurrent.ConcurrentHashMap.putVal(Ljava/lang/Object;Ljava/lang/Object;Z)Ljava/lang/Object; @ 331
+Event: 27,833 Thread 0xb650d800 Uncommon trap: reason=unstable_if action=reinterpret pc=0xa7ef06d8 method=java.util.concurrent.ConcurrentHashMap.transfer([Ljava/util/concurrent/ConcurrentHashMap$Node;[Ljava/util/concurrent/ConcurrentHashMap$Node;)V @ 356
+Event: 28,211 Thread 0xb650d800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0xa7e2ea98 method=java.net.URL.<init>(Ljava/net/URL;Ljava/lang/String;Ljava/net/URLStreamHandler;)V @ 504
+Event: 28,701 Thread 0xb650d800 Uncommon trap: reason=class_check action=maybe_recompile pc=0xa764965c method=java.lang.String.equals(Ljava/lang/Object;)Z @ 8
+Event: 28,706 Thread 0xb650d800 Uncommon trap: reason=class_check action=maybe_recompile pc=0xa764965c method=java.lang.String.equals(Ljava/lang/Object;)Z @ 8
+Event: 28,706 Thread 0xb650d800 Uncommon trap: reason=class_check action=maybe_recompile pc=0xa764965c method=java.lang.String.equals(Ljava/lang/Object;)Z @ 8
+Event: 28,800 Thread 0xb650d800 Uncommon trap: reason=class_check action=maybe_recompile pc=0xa784c6dc method=org.springframework.boot.context.properties.source.ConfigurationPropertyName.elementEquals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z @ 1
+Event: 28,800 Thread 0xb650d800 Uncommon trap: reason=class_check action=maybe_recompile pc=0xa7862988 method=org.springframework.boot.context.properties.source.ConfigurationPropertyName.isIndexed(Ljava/lang/CharSequence;)Z @ 2
+Event: 29,060 Thread 0xb650d800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0xa75cee28 method=java.util.Hashtable.get(Ljava/lang/Object;)Ljava/lang/Object; @ 6
+Event: 29,065 Thread 0xb650d800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0xa75cee28 method=java.util.Hashtable.get(Ljava/lang/Object;)Ljava/lang/Object; @ 6
+
+Internal exceptions (10 events):
+Event: 28,820 Thread 0xb650d800 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0xa40fadd0) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u91/6644/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 28,821 Thread 0xb650d800 Exception <a 'java/lang/ClassNotFoundException': org/springframework/cloud/netflix/eureka/serviceregistry/EurekaRegistrationCustomizer> (0xa412a000) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u91/6644/hotspot/src/share/vm/classfile/systemDictio
+Event: 28,823 Thread 0xb650d800 Exception <a 'java/lang/ClassNotFoundException': org/springframework/cloud/client/serviceregistry/RegistrationCustomizer> (0xa4170bc8) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u91/6644/hotspot/src/share/vm/classfile/systemDictionary.cpp, line
+Event: 425,683 Thread 0x81599000 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x9da06c98) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u91/6644/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 425,684 Thread 0x81599000 Exception <a 'java/lang/ClassNotFoundException': org/springframework/web/servlet/i18n/AcceptHeaderLocaleResolverCustomizer> (0x9da33bc8) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u91/6644/hotspot/src/share/vm/classfile/systemDictionary.cpp, li
+Event: 425,690 Thread 0x81599000 Exception <a 'java/lang/ClassNotFoundException': org/springframework/web/servlet/LocaleResolverCustomizer> (0x9da5f678) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u91/6644/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 425,760 Thread 0x81599000 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x9da7db98) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u91/6644/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 425,761 Thread 0x81599000 Exception <a 'java/lang/ClassNotFoundException': org/springframework/web/servlet/theme/AbstractThemeResolverCustomizer> (0x9daa7f08) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u91/6644/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 2
+Event: 425,762 Thread 0x81599000 Exception <a 'java/lang/ClassNotFoundException': org/springframework/web/servlet/theme/FixedThemeResolverCustomizer> (0x9dad1228) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u91/6644/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 425,763 Thread 0x81599000 Exception <a 'java/lang/ClassNotFoundException': org/springframework/web/servlet/ThemeResolverCustomizer> (0x9daf5c20) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u91/6644/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+
+Events (10 events):
+Event: 425,762 loading class org/springframework/web/servlet/theme/FixedThemeResolverCustomizer
+Event: 425,762 loading class org/springframework/web/servlet/theme/FixedThemeResolverCustomizer done
+Event: 425,762 loading class org/springframework/web/servlet/theme/FixedThemeResolverCustomizer
+Event: 425,762 loading class org/springframework/web/servlet/theme/FixedThemeResolverCustomizer done
+Event: 425,762 loading class org/springframework/web/servlet/ThemeResolverCustomizer
+Event: 425,762 loading class org/springframework/web/servlet/ThemeResolverCustomizer done
+Event: 425,763 loading class org/springframework/web/servlet/ThemeResolverCustomizer
+Event: 425,763 loading class org/springframework/web/servlet/ThemeResolverCustomizer done
+Event: 425,763 loading class org/springframework/web/servlet/ThemeResolverCustomizer
+Event: 425,763 loading class org/springframework/web/servlet/ThemeResolverCustomizer done
+
+
+Dynamic libraries:
+08048000-08049000 r-xp 00000000 08:06 26871445   /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/bin/java
+08049000-0804a000 rw-p 00000000 08:06 26871445   /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/bin/java
+093b5000-0a3ec000 rw-p 00000000 00:00 0          [heap]
+80557000-807a9000 rw-p 00000000 00:00 0 
+807a9000-807ac000 ---p 00000000 00:00 0 
+807ac000-807fa000 rw-p 00000000 00:00 0 
+807fa000-807fd000 ---p 00000000 00:00 0 
+807fd000-8084b000 rw-p 00000000 00:00 0 
+8084b000-8084e000 ---p 00000000 00:00 0 
+8084e000-8089c000 rw-p 00000000 00:00 0 
+8089c000-8089f000 ---p 00000000 00:00 0 
+8089f000-808ed000 rw-p 00000000 00:00 0 
+808ed000-808f0000 ---p 00000000 00:00 0 
+808f0000-8093e000 rw-p 00000000 00:00 0 
+8093e000-80941000 ---p 00000000 00:00 0 
+80941000-8098f000 rw-p 00000000 00:00 0 
+8098f000-80992000 ---p 00000000 00:00 0 
+80992000-809e0000 rw-p 00000000 00:00 0 
+809e0000-809e3000 ---p 00000000 00:00 0 
+809e3000-80a31000 rw-p 00000000 00:00 0 
+80a31000-80a34000 ---p 00000000 00:00 0 
+80a34000-80a82000 rw-p 00000000 00:00 0 
+80a82000-80a85000 ---p 00000000 00:00 0 
+80a85000-80ad3000 rw-p 00000000 00:00 0 
+80ad3000-80ad6000 ---p 00000000 00:00 0 
+80ad6000-80bc4000 rw-p 00000000 00:00 0 
+80bc4000-80c24000 ---p 00000000 00:00 0 
+80c24000-80c27000 ---p 00000000 00:00 0 
+80c27000-80c75000 rw-p 00000000 00:00 0 
+80c75000-80c78000 ---p 00000000 00:00 0 
+80c78000-80cc6000 rw-p 00000000 00:00 0 
+80cc6000-80cc9000 ---p 00000000 00:00 0 
+80cc9000-80d17000 rw-p 00000000 00:00 0 
+80d17000-80d1a000 ---p 00000000 00:00 0 
+80d1a000-80d68000 rw-p 00000000 00:00 0 
+80d68000-80d6b000 ---p 00000000 00:00 0 
+80d6b000-80db9000 rw-p 00000000 00:00 0 
+80db9000-80dbc000 ---p 00000000 00:00 0 
+80dbc000-80e0a000 rw-p 00000000 00:00 0 
+80e0a000-80e0d000 ---p 00000000 00:00 0 
+80e0d000-80e5b000 rw-p 00000000 00:00 0 
+80e5b000-80e5e000 ---p 00000000 00:00 0 
+80e5e000-80eac000 rw-p 00000000 00:00 0 
+80eac000-80eaf000 ---p 00000000 00:00 0 
+80eaf000-80efd000 rw-p 00000000 00:00 0 
+80efd000-80f00000 ---p 00000000 00:00 0 
+80f00000-80f4e000 rw-p 00000000 00:00 0 
+80f4e000-80f51000 ---p 00000000 00:00 0 
+80f51000-80f9f000 rw-p 00000000 00:00 0 
+80f9f000-80fa2000 ---p 00000000 00:00 0 
+80fa2000-80ff0000 rw-p 00000000 00:00 0 
+80ff0000-80ff3000 ---p 00000000 00:00 0 
+80ff3000-81041000 rw-p 00000000 00:00 0 
+81041000-81044000 ---p 00000000 00:00 0 
+81044000-81092000 rw-p 00000000 00:00 0 
+81092000-81095000 ---p 00000000 00:00 0 
+81095000-810e3000 rw-p 00000000 00:00 0 
+810e3000-810e6000 ---p 00000000 00:00 0 
+810e6000-81134000 rw-p 00000000 00:00 0 
+81134000-81137000 ---p 00000000 00:00 0 
+81137000-81185000 rw-p 00000000 00:00 0 
+81185000-81188000 ---p 00000000 00:00 0 
+81188000-811d6000 rw-p 00000000 00:00 0 
+811d6000-811d9000 ---p 00000000 00:00 0 
+811d9000-81227000 rw-p 00000000 00:00 0 
+81227000-8122a000 ---p 00000000 00:00 0 
+8122a000-81278000 rw-p 00000000 00:00 0 
+81278000-8127b000 ---p 00000000 00:00 0 
+8127b000-812c9000 rw-p 00000000 00:00 0 
+812c9000-812cc000 ---p 00000000 00:00 0 
+812cc000-8131a000 rw-p 00000000 00:00 0 
+8131a000-8131d000 ---p 00000000 00:00 0 
+8131d000-8136b000 rw-p 00000000 00:00 0 
+8136b000-8136e000 ---p 00000000 00:00 0 
+8136e000-813bc000 rw-p 00000000 00:00 0 
+813bc000-813bf000 ---p 00000000 00:00 0 
+813bf000-8140d000 rw-p 00000000 00:00 0 
+8140d000-81410000 ---p 00000000 00:00 0 
+81410000-8145e000 rw-p 00000000 00:00 0 
+8145e000-81461000 ---p 00000000 00:00 0 
+81461000-814af000 rw-p 00000000 00:00 0 
+814af000-814b2000 ---p 00000000 00:00 0 
+814b2000-81500000 rw-p 00000000 00:00 0 
+81500000-815cf000 rw-p 00000000 00:00 0 
+815cf000-81600000 ---p 00000000 00:00 0 
+8164e000-81651000 ---p 00000000 00:00 0 
+81651000-8169f000 rw-p 00000000 00:00 0 
+8169f000-816a2000 ---p 00000000 00:00 0 
+816a2000-817f0000 rw-p 00000000 00:00 0 
+81800000-81900000 rw-p 00000000 00:00 0 
+81900000-819fa000 rw-p 00000000 00:00 0 
+819fa000-81a00000 ---p 00000000 00:00 0 
+81a2e000-81a31000 ---p 00000000 00:00 0 
+81a31000-81b7f000 rw-p 00000000 00:00 0 
+81bac000-81baf000 ---p 00000000 00:00 0 
+81baf000-81bfd000 rw-p 00000000 00:00 0 
+81c40000-81c43000 ---p 00000000 00:00 0 
+81c43000-81c91000 rw-p 00000000 00:00 0 
+81c91000-81c94000 ---p 00000000 00:00 0 
+81c94000-81ce2000 rw-p 00000000 00:00 0 
+81ce2000-81cfe000 r-xp 00000000 08:01 1068278    /usr/lib/libgcc_s-4.9.2.so.1
+81cfe000-81cff000 r--p 0001b000 08:01 1068278    /usr/lib/libgcc_s-4.9.2.so.1
+81cff000-81d00000 rw-p 0001c000 08:01 1068278    /usr/lib/libgcc_s-4.9.2.so.1
+81d00000-81dfb000 rw-p 00000000 00:00 0 
+81dfb000-81e00000 ---p 00000000 00:00 0 
+81e0f000-81e12000 ---p 00000000 00:00 0 
+81e12000-81f60000 rw-p 00000000 00:00 0 
+81f74000-81fa7000 r-xp 00000000 08:06 4457497    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386/libsunec.so
+81fa7000-81fab000 rw-p 00032000 08:06 4457497    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386/libsunec.so
+81fab000-81faf000 rw-p 00000000 00:00 0 
+81faf000-81fb2000 ---p 00000000 00:00 0 
+81fb2000-82100000 rw-p 00000000 00:00 0 
+82100000-82160000 rw-p 00000000 00:00 0 
+82160000-82200000 ---p 00000000 00:00 0 
+8220d000-82210000 ---p 00000000 00:00 0 
+82210000-8225e000 rw-p 00000000 00:00 0 
+8225e000-82261000 ---p 00000000 00:00 0 
+82261000-822af000 rw-p 00000000 00:00 0 
+822af000-822b2000 ---p 00000000 00:00 0 
+822b2000-82300000 rw-p 00000000 00:00 0 
+82300000-823fb000 rw-p 00000000 00:00 0 
+823fb000-82400000 ---p 00000000 00:00 0 
+82400000-824fc000 rw-p 00000000 00:00 0 
+824fc000-82500000 ---p 00000000 00:00 0 
+82500000-82600000 rw-p 00000000 00:00 0 
+82600000-82700000 rw-p 00000000 00:00 0 
+82700000-82800000 rw-p 00000000 00:00 0 
+82800000-82900000 rw-p 00000000 00:00 0 
+8290d000-82a0d000 rw-p 00000000 00:00 0 
+82a0d000-82a10000 ---p 00000000 00:00 0 
+82a10000-82a5e000 rw-p 00000000 00:00 0 
+82a5e000-82a61000 ---p 00000000 00:00 0 
+82a61000-82aaf000 rw-p 00000000 00:00 0 
+82aaf000-82ab2000 ---p 00000000 00:00 0 
+82ab2000-82b00000 rw-p 00000000 00:00 0 
+82b00000-82c00000 rw-p 00000000 00:00 0 
+82c00000-82d00000 rw-p 00000000 00:00 0 
+82d00000-82e00000 rw-p 00000000 00:00 0 
+82e00000-82f00000 rw-p 00000000 00:00 0 
+82f00000-83000000 rw-p 00000000 00:00 0 
+83000000-83100000 rw-p 00000000 00:00 0 
+83100000-83200000 rw-p 00000000 00:00 0 
+83200000-832fa000 rw-p 00000000 00:00 0 
+832fa000-83300000 ---p 00000000 00:00 0 
+83300000-83400000 rw-p 00000000 00:00 0 
+83400000-83500000 rw-p 00000000 00:00 0 
+83500000-83600000 rw-p 00000000 00:00 0 
+83600000-83700000 rw-p 00000000 00:00 0 
+83700000-83800000 rw-p 00000000 00:00 0 
+83800000-838fd000 rw-p 00000000 00:00 0 
+838fd000-83900000 ---p 00000000 00:00 0 
+83900000-83a00000 rw-p 00000000 00:00 0 
+83a00000-83afa000 rw-p 00000000 00:00 0 
+83afa000-83b00000 ---p 00000000 00:00 0 
+83b00000-83c00000 rw-p 00000000 00:00 0 
+83c00000-83d00000 rw-p 00000000 00:00 0 
+83d00000-83e00000 rw-p 00000000 00:00 0 
+83e00000-83efd000 rw-p 00000000 00:00 0 
+83efd000-83f00000 ---p 00000000 00:00 0 
+83f00000-84000000 rw-p 00000000 00:00 0 
+84000000-840fa000 rw-p 00000000 00:00 0 
+840fa000-84100000 ---p 00000000 00:00 0 
+8412d000-8412f000 rw-p 00000000 00:00 0 
+8412f000-84135000 r--s 002f8000 08:06 20842507   /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/charsets.jar
+84135000-84235000 rw-p 00000000 00:00 0 
+84235000-84335000 rw-p 00000000 00:00 0 
+84335000-84435000 rw-p 00000000 00:00 0 
+84435000-8444b000 r-xp 00000000 08:01 1065257    /usr/lib/libresolv-2.20.so
+8444b000-8444c000 r--p 00015000 08:01 1065257    /usr/lib/libresolv-2.20.so
+8444c000-8444d000 rw-p 00016000 08:01 1065257    /usr/lib/libresolv-2.20.so
+8444d000-8444f000 rw-p 00000000 00:00 0 
+8444f000-84454000 r-xp 00000000 08:01 1064331    /usr/lib/libnss_dns-2.20.so
+84454000-84455000 r--p 00004000 08:01 1064331    /usr/lib/libnss_dns-2.20.so
+84455000-84456000 rw-p 00005000 08:01 1064331    /usr/lib/libnss_dns-2.20.so
+84456000-8446e000 r-xp 00000000 08:01 1059482    /usr/lib/libnsl-2.20.so
+8446e000-8446f000 r--p 00017000 08:01 1059482    /usr/lib/libnsl-2.20.so
+8446f000-84470000 rw-p 00018000 08:01 1059482    /usr/lib/libnsl-2.20.so
+84470000-84472000 rw-p 00000000 00:00 0 
+84472000-8447d000 r-xp 00000000 08:01 1065251    /usr/lib/libnss_nis-2.20.so
+8447d000-8447e000 r--p 0000a000 08:01 1065251    /usr/lib/libnss_nis-2.20.so
+8447e000-8447f000 rw-p 0000b000 08:01 1065251    /usr/lib/libnss_nis-2.20.so
+8447f000-8448b000 r-xp 00000000 08:01 1070850    /usr/lib/libnss_files-2.20.so
+8448b000-8448c000 r--p 0000b000 08:01 1070850    /usr/lib/libnss_files-2.20.so
+8448c000-8448d000 rw-p 0000c000 08:01 1070850    /usr/lib/libnss_files-2.20.so
+8448d000-8448e000 r--s 00009000 08:06 4457353    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/ext/sunec.jar
+8448e000-84492000 r--s 0003a000 08:06 4457357    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/ext/sunpkcs11.jar
+84492000-84496000 r--s 00097000 08:06 20842559   /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/jsse.jar
+84496000-844a5000 r-xp 00000000 08:06 4457478    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386/libnio.so
+844a5000-844a6000 rw-p 0000e000 08:06 4457478    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386/libnio.so
+844a6000-844ae000 r-xp 00000000 08:06 4457469    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386/libmanagement.so
+844ae000-844af000 rw-p 00007000 08:06 4457469    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386/libmanagement.so
+844af000-844b2000 ---p 00000000 00:00 0 
+844b2000-84600000 rw-p 00000000 00:00 0 
+84600000-846fa000 rw-p 00000000 00:00 0 
+846fa000-84700000 ---p 00000000 00:00 0 
+84700000-84702000 r-xp 00000000 08:01 1065426    /usr/lib/libnss_mdns4.so.2
+84702000-84703000 r--p 00001000 08:01 1065426    /usr/lib/libnss_mdns4.so.2
+84703000-84704000 rw-p 00002000 08:01 1065426    /usr/lib/libnss_mdns4.so.2
+84704000-84719000 r-xp 00000000 08:06 4457449    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386/libnet.so
+84719000-8471a000 rw-p 00015000 08:06 4457449    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386/libnet.so
+8471a000-847af000 r--s 01103000 08:06 4457349    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/ext/jfxrt.jar
+847af000-848af000 rw-p 00000000 00:00 0 
+848af000-848b2000 ---p 00000000 00:00 0 
+848b2000-84a00000 rw-p 00000000 00:00 0 
+84a00000-84b00000 rw-p 00000000 00:00 0 
+84b00000-84bfd000 rw-p 00000000 00:00 0 
+84bfd000-84c00000 ---p 00000000 00:00 0 
+84c00000-84d00000 rw-p 00000000 00:00 0 
+84d00000-84df3000 rw-p 00000000 00:00 0 
+84df3000-84e00000 ---p 00000000 00:00 0 
+84e00000-84e03000 r--s 0001a000 08:06 20842543   /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/jce.jar
+84e03000-84e05000 r-xp 00000000 08:01 1065427    /usr/lib/libnss_mdns4_minimal.so.2
+84e05000-84e06000 r--p 00001000 08:01 1065427    /usr/lib/libnss_mdns4_minimal.so.2
+84e06000-84e07000 rw-p 00002000 08:01 1065427    /usr/lib/libnss_mdns4_minimal.so.2
+84e07000-84e11000 r--s 00116000 08:06 4457347    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/ext/localedata.jar
+84e11000-84e12000 r-xp 00000000 08:01 1048912    /usr/lib/gconv/ISO8859-1.so
+84e12000-84e13000 r--p 00001000 08:01 1048912    /usr/lib/gconv/ISO8859-1.so
+84e13000-84e14000 rw-p 00002000 08:01 1048912    /usr/lib/gconv/ISO8859-1.so
+84e14000-84e1b000 r--s 00000000 08:01 1070931    /usr/lib/gconv/gconv-modules.cache
+84e1b000-84e41000 r--p 00000000 08:01 1048978    /usr/share/locale/fr/LC_MESSAGES/libc.mo
+84e41000-84e43000 r--s 00004000 08:06 21236629   /home/dzialoszynski/.m2/repository/org/springframework/spring-jcl/5.0.9.RELEASE/spring-jcl-5.0.9.RELEASE.jar
+84e43000-84e5b000 r--s 00114000 08:06 21236627   /home/dzialoszynski/.m2/repository/org/springframework/spring-core/5.0.9.RELEASE/spring-core-5.0.9.RELEASE.jar
+84e5b000-84e62000 r--s 00042000 08:06 21236135   /home/dzialoszynski/.m2/repository/org/yaml/snakeyaml/1.19/snakeyaml-1.19.jar
+84e62000-84e64000 r--s 00005000 08:06 21365658   /home/dzialoszynski/.m2/repository/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.jar
+84e64000-84e66000 r--s 00000000 08:06 21236131   /home/dzialoszynski/.m2/repository/org/slf4j/jul-to-slf4j/1.7.25/jul-to-slf4j-1.7.25.jar
+84e66000-84e6c000 r--s 00039000 08:06 21236129   /home/dzialoszynski/.m2/repository/org/apache/logging/log4j/log4j-api/2.10.0/log4j-api-2.10.0.jar
+84e6c000-84e6e000 r--s 00003000 08:06 21236127   /home/dzialoszynski/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.10.0/log4j-to-slf4j-2.10.0.jar
+84e6e000-84e79000 r--s 00069000 08:06 21236123   /home/dzialoszynski/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar
+84e79000-84e7f000 r--s 00041000 08:06 21236121   /home/dzialoszynski/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar
+84e7f000-84e80000 r--s 00000000 08:06 21236573   /home/dzialoszynski/.m2/repository/org/springframework/boot/spring-boot-starter-logging/2.0.5.RELEASE/spring-boot-starter-logging-2.0.5.RELEASE.jar
+84e80000-84ea1000 r--s 000fe000 08:06 21236696   /home/dzialoszynski/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/2.0.5.RELEASE/spring-boot-autoconfigure-2.0.5.RELEASE.jar
+84ea1000-84ebb000 r--s 000f1000 08:06 21236997   /home/dzialoszynski/.m2/repository/org/springframework/spring-context/5.0.9.RELEASE/spring-context-5.0.9.RELEASE.jar
+84ebb000-84ed0000 r--s 000d0000 08:06 21236568   /home/dzialoszynski/.m2/repository/org/springframework/boot/spring-boot/2.0.5.RELEASE/spring-boot-2.0.5.RELEASE.jar
+84ed0000-84ed2000 r--s 00009000 08:06 21236125   /home/dzialoszynski/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar
+84ed2000-84ed4000 r--s 00003000 08:06 21365862   /home/dzialoszynski/.m2/repository/com/netflix/ribbon/ribbon-eureka/2.2.5/ribbon-eureka-2.2.5.jar
+84ed4000-84eed000 r--s 00102000 08:06 21236692   /home/dzialoszynski/.m2/repository/io/reactivex/rxjava/1.3.8/rxjava-1.3.8.jar
+84eed000-84eef000 r--s 00002000 08:06 21365789   /home/dzialoszynski/.m2/repository/com/netflix/netflix-commons/netflix-statistics/0.1.1/netflix-statistics-0.1.1.jar
+84eef000-84ef3000 r--s 00024000 08:06 21365860   /home/dzialoszynski/.m2/repository/com/netflix/ribbon/ribbon-loadbalancer/2.2.5/ribbon-loadbalancer-2.2.5.jar
+84ef3000-84f00000 r--s 00083000 08:06 20580159   /home/dzialoszynski/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar
+84f00000-85000000 rw-p 00000000 00:00 0 
+85000000-850fe000 rw-p 00000000 00:00 0 
+850fe000-85100000 ---p 00000000 00:00 0 
+85100000-85101000 r--s 00000000 08:06 21236567   /home/dzialoszynski/.m2/repository/org/springframework/boot/spring-boot-starter/2.0.5.RELEASE/spring-boot-starter-2.0.5.RELEASE.jar
+85101000-85103000 r--s 00001000 08:06 21365858   /home/dzialoszynski/.m2/repository/com/netflix/netflix-commons/netflix-commons-util/0.3.0/netflix-commons-util-0.3.0.jar
+85103000-85105000 r--s 0000c000 08:06 21365856   /home/dzialoszynski/.m2/repository/com/netflix/ribbon/ribbon-httpclient/2.2.5/ribbon-httpclient-2.2.5.jar
+85105000-85109000 r--s 00011000 08:06 21365854   /home/dzialoszynski/.m2/repository/com/netflix/ribbon/ribbon-core/2.2.5/ribbon-core-2.2.5.jar
+85109000-8510a000 r--s 00007000 08:06 21236683   /home/dzialoszynski/.m2/repository/io/netty/netty-resolver/4.1.29.Final/netty-resolver-4.1.29.Final.jar
+8510a000-85113000 r--s 00068000 08:06 21236677   /home/dzialoszynski/.m2/repository/io/netty/netty-transport/4.1.29.Final/netty-transport-4.1.29.Final.jar
+85113000-85115000 r--s 00006000 08:06 21236687   /home/dzialoszynski/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.29.Final/netty-transport-native-unix-common-4.1.29.Final.jar
+85115000-85119000 r--s 0003f000 08:06 21236679   /home/dzialoszynski/.m2/repository/io/netty/netty-buffer/4.1.29.Final/netty-buffer-4.1.29.Final.jar
+85119000-85126000 r--s 00081000 08:06 21236666   /home/dzialoszynski/.m2/repository/io/netty/netty-common/4.1.29.Final/netty-common-4.1.29.Final.jar
+85126000-85129000 r--s 0001a000 08:06 21236681   /home/dzialoszynski/.m2/repository/io/netty/netty-transport-native-epoll/4.1.29.Final/netty-transport-native-epoll-4.1.29.Final.jar
+85129000-85130000 r--s 00047000 08:06 21236659   /home/dzialoszynski/.m2/repository/io/netty/netty-codec/4.1.29.Final/netty-codec-4.1.29.Final.jar
+85130000-8513a000 r--s 00080000 08:06 21236674   /home/dzialoszynski/.m2/repository/io/netty/netty-codec-http/4.1.29.Final/netty-codec-http-4.1.29.Final.jar
+8513a000-85144000 r--s 00059000 08:06 21236358   /home/dzialoszynski/.m2/repository/io/reactivex/rxnetty/0.4.9/rxnetty-0.4.9.jar
+85144000-85150000 r--s 00068000 08:06 21365852   /home/dzialoszynski/.m2/repository/com/netflix/hystrix/hystrix-core/1.5.12/hystrix-core-1.5.12.jar
+85150000-85152000 r--s 00006000 08:06 21236354   /home/dzialoszynski/.m2/repository/io/reactivex/rxnetty-servo/0.4.9/rxnetty-servo-0.4.9.jar
+85152000-85155000 r--s 0000b000 08:06 21236352   /home/dzialoszynski/.m2/repository/io/reactivex/rxnetty-contexts/0.4.9/rxnetty-contexts-0.4.9.jar
+85155000-85156000 r--s 00009000 08:06 21365850   /home/dzialoszynski/.m2/repository/com/netflix/ribbon/ribbon-transport/2.2.5/ribbon-transport-2.2.5.jar
+85156000-8515a000 r--s 00012000 08:06 21365848   /home/dzialoszynski/.m2/repository/com/netflix/ribbon/ribbon/2.2.5/ribbon-2.2.5.jar
+8515a000-8515b000 r--s 00000000 08:06 21236993   /home/dzialoszynski/.m2/repository/org/springframework/cloud/spring-cloud-starter-netflix-ribbon/2.0.1.RELEASE/spring-cloud-starter-netflix-ribbon-2.0.1.RELEASE.jar
+8515b000-85160000 r--s 00041000 08:06 22545060   /home/dzialoszynski/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar
+85160000-85167000 r--s 00050000 08:06 20580157   /home/dzialoszynski/.m2/repository/commons-configuration/commons-configuration/1.8/commons-configuration-1.8.jar
+85167000-85169000 r--s 00002000 08:06 21236991   /home/dzialoszynski/.m2/repository/org/springframework/cloud/spring-cloud-netflix-archaius/2.0.1.RELEASE/spring-cloud-netflix-archaius-2.0.1.RELEASE.jar
+85169000-8516d000 r--s 00016000 08:06 21236989   /home/dzialoszynski/.m2/repository/org/springframework/cloud/spring-cloud-netflix-ribbon/2.0.1.RELEASE/spring-cloud-netflix-ribbon-2.0.1.RELEASE.jar
+8516d000-8516e000 r--s 00000000 08:06 21236987   /home/dzialoszynski/.m2/repository/org/springframework/cloud/spring-cloud-starter-netflix-archaius/2.0.1.RELEASE/spring-cloud-starter-netflix-archaius-2.0.1.RELEASE.jar
+8516e000-85170000 r--s 00005000 08:06 24381193   /home/dzialoszynski/.m2/repository/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar
+85170000-85171000 r--s 00001000 08:06 24381191   /home/dzialoszynski/.m2/repository/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar
+85171000-8517f000 r--s 00082000 08:06 24380015   /home/dzialoszynski/.m2/repository/com/thoughtworks/xstream/xstream/1.4.10/xstream-1.4.10.jar
+8517f000-85185000 r--s 00078000 08:06 7864946    /home/dzialoszynski/.m2/repository/com/fasterxml/woodstox/woodstox-core/5.0.3/woodstox-core-5.0.3.jar
+85185000-85189000 r--s 00024000 08:06 7864948    /home/dzialoszynski/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar
+85189000-8518b000 r--s 00007000 08:06 21236672   /home/dzialoszynski/.m2/repository/com/fasterxml/jackson/module/jackson-module-jaxb-annotations/2.9.6/jackson-module-jaxb-annotations-2.9.6.jar
+8518b000-8518e000 r--s 00016000 08:06 21237015   /home/dzialoszynski/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-xml/2.9.6/jackson-dataformat-xml-2.9.6.jar
+8518e000-851b9000 r--s 001f5000 08:06 24380013   /home/dzialoszynski/.m2/repository/com/google/guava/guava/16.0/guava-16.0.jar
+851b9000-851bb000 r--s 00003000 08:06 21236336   /home/dzialoszynski/.m2/repository/com/google/code/findbugs/jsr305/3.0.1/jsr305-3.0.1.jar
+851bb000-851bf000 r--s 0001f000 08:06 21365842   /home/dzialoszynski/.m2/repository/com/netflix/archaius/archaius-core/0.7.6/archaius-core-0.7.6.jar
+851bf000-851c1000 r--s 00004000 08:06 21236334   /home/dzialoszynski/.m2/repository/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar
+851c1000-851c7000 r--s 00071000 08:06 7865427    /home/dzialoszynski/.m2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar
+851c7000-851cc000 r--s 00039000 08:06 21365846   /home/dzialoszynski/.m2/repository/com/netflix/eureka/eureka-core/1.9.3/eureka-core-1.9.3.jar
+851cc000-851dc000 r--s 0009d000 08:06 21236322   /home/dzialoszynski/.m2/repository/com/sun/jersey/jersey-server/1.19.1/jersey-server-1.19.1.jar
+851dc000-851e0000 r--s 0001c000 08:06 21236320   /home/dzialoszynski/.m2/repository/com/sun/jersey/jersey-servlet/1.19.1/jersey-servlet-1.19.1.jar
+851e0000-851f3000 r--s 00137000 08:06 21236985   /home/dzialoszynski/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.6/jackson-databind-2.9.6.jar
+851f3000-851f8000 r--s 0004b000 08:06 21236983   /home/dzialoszynski/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.6/jackson-core-2.9.6.jar
+851f8000-851fb000 r--s 0000e000 08:06 21236139   /home/dzialoszynski/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.0/jackson-annotations-2.9.0.jar
+851fb000-85200000 r--s 00024000 08:06 21236981   /home/dzialoszynski/.m2/repository/com/github/andrewoma/dexx/dexx-collections/0.2/dexx-collections-0.2.jar
+85200000-852fe000 rw-p 00000000 00:00 0 
+852fe000-85300000 ---p 00000000 00:00 0 
+85300000-85301000 r--s 00000000 08:06 24382143   /home/dzialoszynski/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar
+85301000-85302000 r--s 00004000 08:06 21236979   /home/dzialoszynski/.m2/repository/com/github/vlsi/compactmap/compactmap/1.2.1/compactmap-1.2.1.jar
+85302000-85304000 r--s 00000000 08:06 24382147   /home/dzialoszynski/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar
+85304000-85312000 r--s 00097000 08:06 21236977   /home/dzialoszynski/.m2/repository/com/google/inject/guice/4.1.0/guice-4.1.0.jar
+85312000-85319000 r--s 0004b000 08:06 22545067   /home/dzialoszynski/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar
+85319000-85320000 r--s 00049000 08:06 21236671   /home/dzialoszynski/.m2/repository/org/apache/httpcomponents/httpcore/4.4.10/httpcore-4.4.10.jar
+85320000-8532d000 r--s 000af000 08:06 21236658   /home/dzialoszynski/.m2/repository/org/apache/httpcomponents/httpclient/4.5.6/httpclient-4.5.6.jar
+8532d000-8532f000 r--s 00003000 08:06 21236312   /home/dzialoszynski/.m2/repository/com/sun/jersey/contribs/jersey-apache-client4/1.19.1/jersey-apache-client4-1.19.1.jar
+8532f000-85332000 r--s 0001e000 08:06 21236310   /home/dzialoszynski/.m2/repository/com/sun/jersey/jersey-client/1.19.1/jersey-client-1.19.1.jar
+85332000-8533c000 r--s 00061000 08:06 21236308   /home/dzialoszynski/.m2/repository/com/sun/jersey/jersey-core/1.19.1/jersey-core-1.19.1.jar
+8533c000-85341000 r--s 00033000 08:06 21365844   /home/dzialoszynski/.m2/repository/com/netflix/servo/servo-core/0.12.21/servo-core-0.12.21.jar
+85341000-85343000 r--s 0000a000 08:06 7865425    /home/dzialoszynski/.m2/repository/javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1.jar
+85343000-85356000 r--s 000df000 08:06 21236975   /home/dzialoszynski/.m2/repository/org/apache/commons/commons-math/2.2/commons-math-2.2.jar
+85356000-8535b000 r--s 00036000 08:06 21236973   /home/dzialoszynski/.m2/repository/com/google/code/gson/gson/2.8.5/gson-2.8.5.jar
+8535b000-85360000 r--s 00068000 08:06 22414141   /home/dzialoszynski/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar
+85360000-85363000 r--s 00022000 08:06 21236971   /home/dzialoszynski/.m2/repository/org/antlr/stringtemplate/3.2.1/stringtemplate-3.2.1.jar
+85363000-85367000 r--s 00025000 08:06 21236969   /home/dzialoszynski/.m2/repository/org/antlr/antlr-runtime/3.4/antlr-runtime-3.4.jar
+85367000-85378000 r--s 0008a000 08:06 20580169   /home/dzialoszynski/.m2/repository/joda-time/joda-time/2.9.9/joda-time-2.9.9.jar
+85378000-8537e000 r--s 00044000 08:06 20580167   /home/dzialoszynski/.m2/repository/commons-jxpath/commons-jxpath/1.3/commons-jxpath-1.3.jar
+8537e000-85381000 r--s 00016000 08:06 21365840   /home/dzialoszynski/.m2/repository/com/netflix/netflix-commons/netflix-infix/0.3.0/netflix-infix-0.3.0.jar
+85381000-85383000 r--s 0000f000 08:06 21365759   /home/dzialoszynski/.m2/repository/com/netflix/netflix-commons/netflix-eventbus/0.3.0/netflix-eventbus-0.3.0.jar
+85383000-85385000 r--s 00005000 08:06 20580155   /home/dzialoszynski/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar
+85385000-85388000 r--s 00012000 08:06 21236306   /home/dzialoszynski/.m2/repository/org/codehaus/jettison/jettison/1.3.7/jettison-1.3.7.jar
+85388000-85392000 r--s 00062000 08:06 21365838   /home/dzialoszynski/.m2/repository/com/netflix/eureka/eureka-client/1.9.3/eureka-client-1.9.3.jar
+85392000-85395000 r--s 00015000 08:06 21236967   /home/dzialoszynski/.m2/repository/org/springframework/cloud/spring-cloud-netflix-eureka-client/2.0.1.RELEASE/spring-cloud-netflix-eureka-client-2.0.1.RELEASE.jar
+85395000-853ae000 r--s 001bf000 08:06 22414125   /home/dzialoszynski/.m2/repository/org/aspectj/aspectjweaver/1.8.13/aspectjweaver-1.8.13.jar
+853ae000-853af000 r--s 00000000 08:06 22414272   /home/dzialoszynski/.m2/repository/org/springframework/boot/spring-boot-starter-aop/2.0.5.RELEASE/spring-boot-starter-aop-2.0.5.RELEASE.jar
+853af000-853b1000 r--s 00005000 08:06 21236961   /home/dzialoszynski/.m2/repository/org/springframework/cloud/spring-cloud-netflix-core/2.0.1.RELEASE/spring-cloud-netflix-core-2.0.1.RELEASE.jar
+853b1000-853b5000 r--s 00028000 08:06 21237013   /home/dzialoszynski/.m2/repository/org/springframework/spring-context-support/5.0.9.RELEASE/spring-context-support-5.0.9.RELEASE.jar
+853b5000-853d1000 r--s 00159000 08:06 21236654   /home/dzialoszynski/.m2/repository/org/freemarker/freemarker/2.3.28/freemarker-2.3.28.jar
+853d1000-853d2000 r--s 00000000 08:06 21236663   /home/dzialoszynski/.m2/repository/org/springframework/boot/spring-boot-starter-freemarker/2.0.5.RELEASE/spring-boot-starter-freemarker-2.0.5.RELEASE.jar
+853d2000-853d4000 r--s 00006000 08:06 21236665   /home/dzialoszynski/.m2/repository/org/latencyutils/LatencyUtils/2.0.3/LatencyUtils-2.0.3.jar
+853d4000-853dc000 r--s 0004f000 08:06 21236653   /home/dzialoszynski/.m2/repository/io/micrometer/micrometer-core/1.0.6/micrometer-core-1.0.6.jar
+853dc000-853ea000 r--s 00064000 08:06 21236657   /home/dzialoszynski/.m2/repository/org/springframework/boot/spring-boot-actuator/2.0.5.RELEASE/spring-boot-actuator-2.0.5.RELEASE.jar
+853ea000-853f7000 r--s 00051000 08:06 21236571   /home/dzialoszynski/.m2/repository/org/springframework/boot/spring-boot-actuator-autoconfigure/2.0.5.RELEASE/spring-boot-actuator-autoconfigure-2.0.5.RELEASE.jar
+853f7000-85400000 r--s 00051000 08:06 21236963   /home/dzialoszynski/.m2/repository/org/springframework/spring-aop/5.0.9.RELEASE/spring-aop-5.0.9.RELEASE.jar
+85400000-854fe000 rw-p 00000000 00:00 0 
+854fe000-85500000 ---p 00000000 00:00 0 
+85500000-85502000 r--s 0001b000 08:06 21236661   /home/dzialoszynski/.m2/repository/org/hdrhistogram/HdrHistogram/2.1.10/HdrHistogram-2.1.10.jar
+85502000-85507000 r--s 00040000 08:06 21236999   /home/dzialoszynski/.m2/repository/org/springframework/spring-expression/5.0.9.RELEASE/spring-expression-5.0.9.RELEASE.jar
+85507000-85516000 r--s 000b3000 08:06 24380017   /home/dzialoszynski/.m2/repository/org/springframework/spring-webmvc/5.0.9.RELEASE/spring-webmvc-5.0.9.RELEASE.jar
+85516000-85523000 r--s 00095000 08:06 21236965   /home/dzialoszynski/.m2/repository/org/springframework/spring-beans/5.0.9.RELEASE/spring-beans-5.0.9.RELEASE.jar
+85523000-8553d000 r--s 0011b000 08:06 21237011   /home/dzialoszynski/.m2/repository/org/springframework/spring-web/5.0.9.RELEASE/spring-web-5.0.9.RELEASE.jar
+8553d000-8553f000 r--s 0000e000 08:06 24380957   /home/dzialoszynski/.m2/repository/com/fasterxml/classmate/1.3.4/classmate-1.3.4.jar
+8553f000-85544000 r--s 00012000 08:06 7865520    /home/dzialoszynski/.m2/repository/javax/validation/validation-api/2.0.1.Final/validation-api-2.0.1.Final.jar
+85544000-85561000 r--s 000fe000 08:06 21236648   /home/dzialoszynski/.m2/repository/org/hibernate/validator/hibernate-validator/6.0.12.Final/hibernate-validator-6.0.12.Final.jar
+85561000-85566000 r--s 0003a000 08:06 21236649   /home/dzialoszynski/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/8.5.34/tomcat-embed-websocket-8.5.34.jar
+85566000-85590000 r--s 002d5000 08:06 21236625   /home/dzialoszynski/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/8.5.34/tomcat-embed-core-8.5.34.jar
+85590000-855db000 r--s 002ff000 08:06 21236959   /home/dzialoszynski/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.56/bcprov-jdk15on-1.56.jar
+855db000-855dc000 ---p 00000000 00:00 0 
+855dc000-8565c000 rw-p 00000000 00:00 0 
+8565c000-8565f000 ---p 00000000 00:00 0 
+8565f000-856ad000 rw-p 00000000 00:00 0 
+856ad000-856b0000 ---p 00000000 00:00 0 
+856b0000-8572e000 rw-p 00000000 00:00 0 
+8572e000-85731000 ---p 00000000 00:00 0 
+85731000-857af000 rw-p 00000000 00:00 0 
+857af000-857b2000 ---p 00000000 00:00 0 
+857b2000-85800000 rw-p 00000000 00:00 0 
+85800000-85a00000 r--p 00000000 08:01 1059256    /usr/share/locale/locale-archive
+85a00000-85a03000 ---p 00000000 00:00 0 
+85a03000-85a51000 rw-p 00000000 00:00 0 
+85a51000-85a54000 ---p 00000000 00:00 0 
+85a54000-85aa2000 rw-p 00000000 00:00 0 
+85aa2000-85aa3000 ---p 00000000 00:00 0 
+85aa3000-85b23000 rw-p 00000000 00:00 0 
+85b23000-85cfc000 r--s 03d1f000 08:06 20842497   /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/rt.jar
+85cfc000-86142000 rw-p 00000000 00:00 0 
+86142000-86148000 ---p 00000000 00:00 0 
+86148000-87300000 rw-p 00000000 00:00 0 
+87300000-87400000 rw-p 00000000 00:00 0 
+87400000-874ff000 rw-p 00000000 00:00 0 
+874ff000-87500000 ---p 00000000 00:00 0 
+87500000-87533000 rw-p 00000000 00:00 0 
+87533000-87600000 ---p 00000000 00:00 0 
+87600000-87602000 r--s 0000f000 08:06 7865518    /home/dzialoszynski/.m2/repository/org/jboss/logging/jboss-logging/3.3.2.Final/jboss-logging-3.3.2.Final.jar
+87602000-87607000 r--s 00038000 08:06 21236695   /home/dzialoszynski/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/8.5.34/tomcat-embed-el-8.5.34.jar
+87607000-87656000 rw-p 00000000 00:00 0 
+87656000-87657000 ---p 00000000 00:00 0 
+87657000-876d7000 rw-p 00000000 00:00 0 
+876d7000-876d8000 ---p 00000000 00:00 0 
+876d8000-8776d000 rw-p 00000000 00:00 0 
+8776d000-87800000 ---p 00000000 00:00 0 
+87800000-8a040000 rw-p 00000000 00:00 0 
+8a040000-9c800000 ---p 00000000 00:00 0 
+9c800000-a7000000 rw-p 00000000 00:00 0 
+a7000000-a7001000 r--s 00000000 08:06 21236650   /home/dzialoszynski/.m2/repository/org/springframework/boot/spring-boot-starter-actuator/2.0.5.RELEASE/spring-boot-starter-actuator-2.0.5.RELEASE.jar
+a7001000-a7002000 r--s 00000000 08:06 21236641   /home/dzialoszynski/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/2.0.5.RELEASE/spring-boot-starter-tomcat-2.0.5.RELEASE.jar
+a7002000-a7004000 r--s 00001000 08:06 21237009   /home/dzialoszynski/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.9.6/jackson-module-parameter-names-2.9.6.jar
+a7004000-a7007000 r--s 00016000 08:06 21237007   /home/dzialoszynski/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.9.6/jackson-datatype-jsr310-2.9.6.jar
+a7007000-a7009000 r--s 00007000 08:06 21237005   /home/dzialoszynski/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.9.6/jackson-datatype-jdk8-2.9.6.jar
+a7009000-a700a000 r--s 00000000 08:06 21236633   /home/dzialoszynski/.m2/repository/org/springframework/boot/spring-boot-starter-json/2.0.5.RELEASE/spring-boot-starter-json-2.0.5.RELEASE.jar
+a700a000-a700b000 r--s 00000000 08:06 21236631   /home/dzialoszynski/.m2/repository/org/springframework/boot/spring-boot-starter-web/2.0.5.RELEASE/spring-boot-starter-web-2.0.5.RELEASE.jar
+a700b000-a700e000 r--s 00075000 08:06 21237003   /home/dzialoszynski/.m2/repository/org/springframework/cloud/spring-cloud-netflix-eureka-server/2.0.1.RELEASE/spring-cloud-netflix-eureka-server-2.0.1.RELEASE.jar
+a700e000-a701f000 r--s 00097000 08:06 21236957   /home/dzialoszynski/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.56/bcpkix-jdk15on-1.56.jar
+a701f000-a7020000 r--s 00004000 08:06 21236955   /home/dzialoszynski/.m2/repository/org/springframework/security/spring-security-rsa/1.0.5.RELEASE/spring-security-rsa-1.0.5.RELEASE.jar
+a7020000-a7025000 r--s 0001b000 08:06 21236953   /home/dzialoszynski/.m2/repository/org/springframework/cloud/spring-cloud-commons/2.0.1.RELEASE/spring-cloud-commons-2.0.1.RELEASE.jar
+a7025000-a7027000 r--s 00010000 08:06 21236951   /home/dzialoszynski/.m2/repository/org/springframework/security/spring-security-crypto/5.0.8.RELEASE/spring-security-crypto-5.0.8.RELEASE.jar
+a7027000-a702b000 r--s 00016000 08:06 21236949   /home/dzialoszynski/.m2/repository/org/springframework/cloud/spring-cloud-context/2.0.1.RELEASE/spring-cloud-context-2.0.1.RELEASE.jar
+a702b000-a7030000 r--s 00084000 08:06 20842496   /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/jfr.jar
+a7030000-a7043000 r--s 00344000 08:06 20842558   /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/resources.jar
+a7043000-a7058000 rw-p 00000000 00:00 0 
+a7058000-a70eb000 ---p 00000000 00:00 0 
+a70eb000-a713f000 rw-p 00000000 00:00 0 
+a713f000-a7171000 rw-p 00000000 00:00 0 
+a7171000-a7500000 ---p 00000000 00:00 0 
+a7500000-a8108000 rwxp 00000000 00:00 0 
+a8108000-b6500000 ---p 00000000 00:00 0 
+b6500000-b65ff000 rw-p 00000000 00:00 0 
+b65ff000-b6600000 ---p 00000000 00:00 0 
+b6600000-b6601000 r--s 00000000 08:06 21236947   /home/dzialoszynski/.m2/repository/org/springframework/cloud/spring-cloud-starter/2.0.1.RELEASE/spring-cloud-starter-2.0.1.RELEASE.jar
+b6601000-b6602000 r--s 00000000 08:06 21237001   /home/dzialoszynski/.m2/repository/org/springframework/cloud/spring-cloud-starter-netflix-eureka-server/2.0.1.RELEASE/spring-cloud-starter-netflix-eureka-server-2.0.1.RELEASE.jar
+b6602000-b6608000 r--s 002f8000 08:06 20842507   /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/charsets.jar
+b6608000-b660b000 r--s 0001a000 08:06 20842543   /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/jce.jar
+b660b000-b660f000 r--s 00097000 08:06 20842559   /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/jsse.jar
+b660f000-b6610000 r--p 0031d000 08:01 1059256    /usr/share/locale/locale-archive
+b6610000-b666b000 rw-p 00000000 00:00 0 
+b666b000-b6684000 r-xp 00000000 08:06 4457450    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386/libzip.so
+b6684000-b6685000 rw-p 00019000 08:06 4457450    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386/libzip.so
+b6685000-b66ba000 r--s 00000000 08:01 2622005    /var/db/nscd/passwd
+b66ba000-b66de000 r-xp 00000000 08:06 4457463    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386/libjava.so
+b66de000-b66df000 rw-p 00023000 08:06 4457463    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386/libjava.so
+b66df000-b66e6000 r-xp 00000000 08:01 1070210    /usr/lib/i686/librt-2.20.so
+b66e6000-b66e7000 r--p 00006000 08:01 1070210    /usr/lib/i686/librt-2.20.so
+b66e7000-b66e8000 rw-p 00007000 08:01 1070210    /usr/lib/i686/librt-2.20.so
+b66e8000-b66eb000 ---p 00000000 00:00 0 
+b66eb000-b6739000 rw-p 00000000 00:00 0 
+b6739000-b6784000 r-xp 00000000 08:01 1070204    /usr/lib/i686/libm-2.20.so
+b6784000-b6785000 r--p 0004a000 08:01 1070204    /usr/lib/i686/libm-2.20.so
+b6785000-b6786000 rw-p 0004b000 08:01 1070204    /usr/lib/i686/libm-2.20.so
+b6786000-b7109000 r-xp 00000000 08:06 4457440    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386/server/libjvm.so
+b7109000-b7176000 rw-p 00983000 08:06 4457440    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386/server/libjvm.so
+b7176000-b759f000 rw-p 00000000 00:00 0 
+b759f000-b7762000 r-xp 00000000 08:01 1054650    /usr/lib/i686/libc-2.20.so
+b7762000-b7765000 r--p 001c2000 08:01 1054650    /usr/lib/i686/libc-2.20.so
+b7765000-b7767000 rw-p 001c5000 08:01 1054650    /usr/lib/i686/libc-2.20.so
+b7767000-b7769000 rw-p 00000000 00:00 0 
+b7769000-b776c000 r-xp 00000000 08:01 1070821    /usr/lib/libdl-2.20.so
+b776c000-b776d000 r--p 00002000 08:01 1070821    /usr/lib/libdl-2.20.so
+b776d000-b776e000 rw-p 00003000 08:01 1070821    /usr/lib/libdl-2.20.so
+b776e000-b776f000 rw-p 00000000 00:00 0 
+b776f000-b7783000 r-xp 00000000 08:06 7340422    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386/jli/libjli.so
+b7783000-b7784000 rw-p 00014000 08:06 7340422    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386/jli/libjli.so
+b7784000-b779b000 r-xp 00000000 08:01 1070208    /usr/lib/i686/libpthread-2.20.so
+b779b000-b779c000 r--p 00017000 08:01 1070208    /usr/lib/i686/libpthread-2.20.so
+b779c000-b779d000 rw-p 00018000 08:01 1070208    /usr/lib/i686/libpthread-2.20.so
+b779d000-b77ab000 rw-p 00000000 00:00 0 
+b77ab000-b77b3000 rw-s 00000000 00:20 317914     /tmp/hsperfdata_dzialoszynski/5630
+b77b3000-b77b4000 rw-p 00000000 00:00 0 
+b77b4000-b77b5000 r--p 00000000 00:00 0 
+b77b5000-b77c0000 r-xp 00000000 08:06 4457482    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386/libverify.so
+b77c0000-b77c1000 rw-p 0000b000 08:06 4457482    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386/libverify.so
+b77c1000-b77c4000 r--p 00000000 00:00 0          [vvar]
+b77c4000-b77c5000 r-xp 00000000 00:00 0          [vdso]
+b77c5000-b77e5000 r-xp 00000000 08:01 1058285    /usr/lib/ld-2.20.so
+b77e5000-b77e6000 rw-p 00000000 00:00 0 
+b77e6000-b77e7000 r--p 00020000 08:01 1058285    /usr/lib/ld-2.20.so
+b77e7000-b77e8000 rw-p 00021000 08:01 1058285    /usr/lib/ld-2.20.so
+bfa9b000-bfac0000 rw-p 00000000 00:00 0          [stack]
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 
+java_command: hello.EurekaServiceApplication
+java_class_path (initial): /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/resources.jar:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/rt.jar:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/jsse.jar:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/jce.jar:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/charsets.jar:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/jfr.jar:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/ext/sunjce_provider.jar:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/ext/nashorn.jar:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/ext/sunpkcs11.jar:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/ext/dnsns.jar:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/ext/localedata.jar:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/ext/jaccess.jar:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/ext/zipfs.jar:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/ext/jfxrt.jar:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/ext/sunec.jar:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/ext/cldrdata.jar:/home/dzialoszynski/workspace/oxygen/gs-service-registration-and-discovery/complete/eureka-service/target/classes:/home/dzialoszynski/.m2/repository/org/springframework/cloud/spring-cloud-starter-netflix-eureka-server/2.0.1.RELEASE/spring-cloud-starter-netflix-eureka-server-2.0.1.RELEASE.jar:/home/dzialoszynski/.m2/repository/org/springframework/cloud/spring-cloud-starter/2.0.1.RELEASE/spring-cloud-starter-2.0.1.RELEASE.jar:/home/dzialoszynski/.m2/repository/org/springframework/cloud/spring-cloud-context/2.0.1.RELEASE/spring-cloud-context-2.0.1.RELEASE.jar:/home/dzialoszynski/.m2/repository/org/springframework/security/spring-security-crypto/5.0.8.RELEASE/spring-security-crypto-5.0.8.RELEASE.jar:/home/dzialoszynski/.m2/repository/org/springframework/cloud/spring-cloud-commons/2.0.1.RELEASE/spring-cloud-commons-2.0.1.RELEAS
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=/usr/local/bin:/usr/bin:/usr/local/games:/usr/games:/home/dzialoszynski/progs/eclipse-oxygen/jdk1.8.0_91/bin:/usr/lib/qt4/bin:/usr/lib/qt5/bin:/home/dzialoszynski/bin
+LD_LIBRARY_PATH=/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386/server:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/../lib/i386:/home/dzialoszynski/progs/eclipse-oxygen/jdk1.8.0_91/jre/lib/i386/client:/home/dzialoszynski/progs/eclipse-oxygen/jdk1.8.0_91/jre/lib/i386:
+SHELL=/bin/bash
+DISPLAY=:0.0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x8d0a60], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0x8d0a60], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x7503b0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x7503b0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x7503b0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x7503b0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x751a30], sa_mask[0]=00100000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0x752ee0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: [libjvm.so+0x752ee0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGTERM: [libjvm.so+0x752ee0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0x752ee0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:Mageia release 5 (Official) for i586
+
+uname:Linux 4.4.114-desktop-1.mga5 #1 SMP Wed Jan 31 20:41:03 UTC 2018 i686
+libc:glibc 2.20 NPTL 2.20 
+rlimit: STACK 8192k, CORE 0k, NPROC 4096, NOFILE 4096, AS infinity
+load average:0,24 0,13 0,08
+
+/proc/meminfo:
+MemTotal:        2058888 kB
+MemFree:          136572 kB
+MemAvailable:     232436 kB
+Buffers:            9404 kB
+Cached:           344624 kB
+SwapCached:         8636 kB
+Active:          1231692 kB
+Inactive:         605104 kB
+Active(anon):    1129460 kB
+Inactive(anon):   496644 kB
+Active(file):     102232 kB
+Inactive(file):   108460 kB
+Unevictable:          48 kB
+Mlocked:              48 kB
+HighTotal:       1248084 kB
+HighFree:          25444 kB
+LowTotal:         810804 kB
+LowFree:          111128 kB
+SwapTotal:       4191344 kB
+SwapFree:        4002212 kB
+Dirty:               236 kB
+Writeback:             0 kB
+AnonPages:       1479296 kB
+Mapped:           196568 kB
+Shmem:            143192 kB
+Slab:              50500 kB
+SReclaimable:      33480 kB
+SUnreclaim:        17020 kB
+KernelStack:        4344 kB
+PageTables:         7220 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     5220788 kB
+Committed_AS:    4209788 kB
+VmallocTotal:     188416 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       4096 kB
+DirectMap4k:       57336 kB
+DirectMap4M:      782336 kB
+
+
+CPU:total 2 (2 cores per cpu, 1 threads per core) family 6 model 14 stepping 8, cmov, cx8, fxsr, mmx, sse, sse2, sse3, tsc
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 14
+model name	: Genuine Intel(R) CPU           T2300  @ 1.66GHz
+stepping	: 8
+microcode	: 0x39
+cpu MHz		: 1667.000
+cache size	: 2048 KB
+physical id	: 0
+siblings	: 2
+core id		: 0
+cpu cores	: 2
+apicid		: 0
+initial apicid	: 0
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 10
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx constant_tsc arch_perfmon bts aperfmperf pni monitor vmx est tm2 xtpr pdcm dtherm rsb_ctxsw retpoline
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 3325.15
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 32 bits physical, 32 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 14
+model name	: Genuine Intel(R) CPU           T2300  @ 1.66GHz
+stepping	: 8
+microcode	: 0x39
+cpu MHz		: 1667.000
+cache size	: 2048 KB
+physical id	: 0
+siblings	: 2
+core id		: 1
+cpu cores	: 2
+apicid		: 1
+initial apicid	: 1
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 10
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx constant_tsc arch_perfmon bts aperfmperf pni monitor vmx est tm2 xtpr pdcm dtherm rsb_ctxsw retpoline
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 3325.15
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 32 bits physical, 32 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 2058888k(136572k free), swap 4191344k(4002212k free)
+
+vm_info: Java HotSpot(TM) Server VM (25.91-b14) for linux-x86 JRE (1.8.0_91-b14), built on Apr  1 2016 01:01:13 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Sun Oct 28 20:52:02 2018
+elapsed time: 425 seconds (0d 0h 7m 5s)
+

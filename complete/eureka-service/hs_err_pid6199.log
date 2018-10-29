@@ -1,0 +1,300 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00000000, pid=6199, tid=3061009216
+#
+# JRE version:  (8.0_91-b14) (build )
+# Java VM: Java HotSpot(TM) Server VM (25.91-b14 mixed mode linux-x86 )
+# Problematic frame:
+# C  0x00000000
+#
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0xb650d800):  JavaThread "Unknown thread" [_thread_in_vm, id=6206, stack(0xb66e4000,0xb6735000)]
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 1 (SEGV_MAPERR), si_addr: 0x00000000
+
+Registers:
+EAX=0xb71901d0, EBX=0xb7155234, ECX=0xb67340a0, EDX=0x00000000
+ESP=0xb6733c0c, EBP=0xb6733c28, ESI=0xb650dc08, EDI=0x0000001c
+EIP=0x00000000, EFLAGS=0x00010296, CR2=0x00000000
+
+Top of Stack: (sp=0xb6733c0c)
+0xb6733c0c:   b6fe5bdd 00000000 b718ef70 b6733d78
+0xb6733c1c:   b6fe5bba b7155234 a7502b71 b6733d88
+0xb6733c2c:   b6fd7220 b71901d0 b650dc08 b67340a0
+0xb6733c3c:   b67340a0 00000000 b6733c94 0000011c
+0xb6733c4c:   00000230 b6733d28 a750e8b3 b71901d0
+0xb6733c5c:   b7094204 0002ba60 00000000 00000001
+0xb6733c6c:   b6fe24c0 b714ffc8 00000000 b650d1a8
+0xb6733c7c:   b650dc00 b650dc08 b650dff4 000003ec 
+
+Instructions: (pc=0x00000000)
+0xffffffe0:   
+
+Stack: [0xb66e4000,0xb6735000],  sp=0xb6733c0c,  free space=319k
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0xb650d800 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=6206, stack(0xb66e4000,0xb6735000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+08048000-08049000 r-xp 00000000 08:06 26871445   /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/bin/java
+08049000-0804a000 rw-p 00000000 08:06 26871445   /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/bin/java
+09ce0000-09d01000 rw-p 00000000 00:00 0          [heap]
+85cfc000-86148000 ---p 00000000 00:00 0 
+86148000-87300000 rw-p 00000000 00:00 0 
+87300000-87321000 rw-p 00000000 00:00 0 
+87321000-87400000 ---p 00000000 00:00 0 
+87500000-87521000 rw-p 00000000 00:00 0 
+87521000-87600000 ---p 00000000 00:00 0 
+87656000-87657000 ---p 00000000 00:00 0 
+87657000-876d7000 rw-p 00000000 00:00 0 
+876d7000-876d8000 ---p 00000000 00:00 0 
+876d8000-87763000 rw-p 00000000 00:00 0 
+87763000-87800000 ---p 00000000 00:00 0 
+87800000-88d80000 rw-p 00000000 00:00 0 
+88d80000-9c800000 ---p 00000000 00:00 0 
+9c800000-9d280000 rw-p 00000000 00:00 0 
+9d280000-a7000000 ---p 00000000 00:00 0 
+a7043000-a704e000 rw-p 00000000 00:00 0 
+a704e000-a70eb000 ---p 00000000 00:00 0 
+a70eb000-a70f1000 rw-p 00000000 00:00 0 
+a70f1000-a713f000 ---p 00000000 00:00 0 
+a713f000-a7149000 rw-p 00000000 00:00 0 
+a7149000-a7500000 ---p 00000000 00:00 0 
+a7500000-a7740000 rwxp 00000000 00:00 0 
+a7740000-b6500000 ---p 00000000 00:00 0 
+b6500000-b652f000 rw-p 00000000 00:00 0 
+b652f000-b6600000 ---p 00000000 00:00 0 
+b660c000-b6667000 rw-p 00000000 00:00 0 
+b6667000-b6680000 r-xp 00000000 08:06 4457450    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386/libzip.so
+b6680000-b6681000 rw-p 00019000 08:06 4457450    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386/libzip.so
+b6681000-b66b6000 r--s 00000000 08:01 2622005    /var/db/nscd/passwd
+b66b6000-b66da000 r-xp 00000000 08:06 4457463    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386/libjava.so
+b66da000-b66db000 rw-p 00023000 08:06 4457463    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386/libjava.so
+b66db000-b66e2000 r-xp 00000000 08:01 1070210    /usr/lib/i686/librt-2.20.so
+b66e2000-b66e3000 r--p 00006000 08:01 1070210    /usr/lib/i686/librt-2.20.so
+b66e3000-b66e4000 rw-p 00007000 08:01 1070210    /usr/lib/i686/librt-2.20.so
+b66e4000-b66e7000 ---p 00000000 00:00 0 
+b66e7000-b6735000 rw-p 00000000 00:00 0 
+b6735000-b6780000 r-xp 00000000 08:01 1070204    /usr/lib/i686/libm-2.20.so
+b6780000-b6781000 r--p 0004a000 08:01 1070204    /usr/lib/i686/libm-2.20.so
+b6781000-b6782000 rw-p 0004b000 08:01 1070204    /usr/lib/i686/libm-2.20.so
+b6782000-b7105000 r-xp 00000000 08:06 4457440    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386/server/libjvm.so
+b7105000-b7172000 rw-p 00983000 08:06 4457440    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386/server/libjvm.so
+b7172000-b759b000 rw-p 00000000 00:00 0 
+b759b000-b775e000 r-xp 00000000 08:01 1054650    /usr/lib/i686/libc-2.20.so
+b775e000-b7761000 r--p 001c2000 08:01 1054650    /usr/lib/i686/libc-2.20.so
+b7761000-b7763000 rw-p 001c5000 08:01 1054650    /usr/lib/i686/libc-2.20.so
+b7763000-b7765000 rw-p 00000000 00:00 0 
+b7765000-b7768000 r-xp 00000000 08:01 1070821    /usr/lib/libdl-2.20.so
+b7768000-b7769000 r--p 00002000 08:01 1070821    /usr/lib/libdl-2.20.so
+b7769000-b776a000 rw-p 00003000 08:01 1070821    /usr/lib/libdl-2.20.so
+b776a000-b776b000 rw-p 00000000 00:00 0 
+b776b000-b777f000 r-xp 00000000 08:06 7340422    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386/jli/libjli.so
+b777f000-b7780000 rw-p 00014000 08:06 7340422    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386/jli/libjli.so
+b7780000-b7797000 r-xp 00000000 08:01 1070208    /usr/lib/i686/libpthread-2.20.so
+b7797000-b7798000 r--p 00017000 08:01 1070208    /usr/lib/i686/libpthread-2.20.so
+b7798000-b7799000 rw-p 00018000 08:01 1070208    /usr/lib/i686/libpthread-2.20.so
+b7799000-b77a7000 rw-p 00000000 00:00 0 
+b77a7000-b77af000 rw-s 00000000 00:20 322407     /tmp/hsperfdata_dzialoszynski/6199
+b77af000-b77b0000 rw-p 00000000 00:00 0 
+b77b0000-b77b1000 r--p 00000000 00:00 0 
+b77b1000-b77bc000 r-xp 00000000 08:06 4457482    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386/libverify.so
+b77bc000-b77bd000 rw-p 0000b000 08:06 4457482    /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386/libverify.so
+b77bd000-b77c0000 r--p 00000000 00:00 0          [vvar]
+b77c0000-b77c1000 r-xp 00000000 00:00 0          [vdso]
+b77c1000-b77e1000 r-xp 00000000 08:01 1058285    /usr/lib/ld-2.20.so
+b77e1000-b77e2000 rw-p 00000000 00:00 0 
+b77e2000-b77e3000 r--p 00020000 08:01 1058285    /usr/lib/ld-2.20.so
+b77e3000-b77e4000 rw-p 00021000 08:01 1058285    /usr/lib/ld-2.20.so
+bf9b3000-bf9d8000 rw-p 00000000 00:00 0          [stack]
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 
+java_command: hello.EurekaServiceApplication
+java_class_path (initial): /home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/resources.jar:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/rt.jar:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/jsse.jar:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/jce.jar:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/charsets.jar:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/jfr.jar:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/ext/sunjce_provider.jar:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/ext/nashorn.jar:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/ext/sunpkcs11.jar:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/ext/dnsns.jar:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/ext/localedata.jar:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/ext/jaccess.jar:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/ext/zipfs.jar:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/ext/jfxrt.jar:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/ext/sunec.jar:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/ext/cldrdata.jar:/home/dzialoszynski/workspace/oxygen/gs-service-registration-and-discovery/complete/eureka-service/target/classes:/home/dzialoszynski/.m2/repository/org/springframework/cloud/spring-cloud-starter-netflix-eureka-server/2.0.1.RELEASE/spring-cloud-starter-netflix-eureka-server-2.0.1.RELEASE.jar:/home/dzialoszynski/.m2/repository/org/springframework/cloud/spring-cloud-starter/2.0.1.RELEASE/spring-cloud-starter-2.0.1.RELEASE.jar:/home/dzialoszynski/.m2/repository/org/springframework/cloud/spring-cloud-context/2.0.1.RELEASE/spring-cloud-context-2.0.1.RELEASE.jar:/home/dzialoszynski/.m2/repository/org/springframework/security/spring-security-crypto/5.0.8.RELEASE/spring-security-crypto-5.0.8.RELEASE.jar:/home/dzialoszynski/.m2/repository/org/springframework/cloud/spring-cloud-commons/2.0.1.RELEASE/spring-cloud-commons-2.0.1.RELEAS
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=/usr/local/bin:/usr/bin:/usr/local/games:/usr/games:/home/dzialoszynski/progs/eclipse-oxygen/jdk1.8.0_91/bin:/usr/lib/qt4/bin:/usr/lib/qt5/bin:/home/dzialoszynski/bin
+LD_LIBRARY_PATH=/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386/server:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/lib/i386:/home/dzialoszynski/progs/eclipse-oxygen/jre1.8.0_91/../lib/i386:/home/dzialoszynski/progs/eclipse-oxygen/jdk1.8.0_91/jre/lib/i386/client:/home/dzialoszynski/progs/eclipse-oxygen/jdk1.8.0_91/jre/lib/i386:
+SHELL=/bin/bash
+DISPLAY=:0.0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x8d0a60], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0x8d0a60], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x7503b0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x7503b0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x7503b0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x7503b0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x751a30], sa_mask[0]=00100000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGINT: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGTERM: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGQUIT: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+
+
+---------------  S Y S T E M  ---------------
+
+OS:Mageia release 5 (Official) for i586
+
+uname:Linux 4.4.114-desktop-1.mga5 #1 SMP Wed Jan 31 20:41:03 UTC 2018 i686
+libc:glibc 2.20 NPTL 2.20 
+rlimit: STACK 8192k, CORE 0k, NPROC 4096, NOFILE 4096, AS infinity
+load average:0.14 0.15 0.10
+
+/proc/meminfo:
+MemTotal:        2058888 kB
+MemFree:          399392 kB
+MemAvailable:     530844 kB
+Buffers:           10464 kB
+Cached:           411288 kB
+SwapCached:         8764 kB
+Active:           921632 kB
+Inactive:         653028 kB
+Active(anon):     793196 kB
+Inactive(anon):   535176 kB
+Active(file):     128436 kB
+Inactive(file):   117852 kB
+Unevictable:          48 kB
+Mlocked:              48 kB
+HighTotal:       1248084 kB
+HighFree:         181808 kB
+LowTotal:         810804 kB
+LowFree:          217584 kB
+SwapTotal:       4191344 kB
+SwapFree:        4002572 kB
+Dirty:                36 kB
+Writeback:             0 kB
+AnonPages:       1149176 kB
+Mapped:           211504 kB
+Shmem:            175496 kB
+Slab:              50472 kB
+SReclaimable:      33460 kB
+SUnreclaim:        17012 kB
+KernelStack:        3888 kB
+PageTables:         6620 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     5220788 kB
+Committed_AS:    3686392 kB
+VmallocTotal:     188416 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       4096 kB
+DirectMap4k:       57336 kB
+DirectMap4M:      782336 kB
+
+
+CPU:total 2 (2 cores per cpu, 1 threads per core) family 6 model 14 stepping 8, cmov, cx8, fxsr, mmx, sse, sse2, sse3, tsc
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 14
+model name	: Genuine Intel(R) CPU           T2300  @ 1.66GHz
+stepping	: 8
+microcode	: 0x39
+cpu MHz		: 1667.000
+cache size	: 2048 KB
+physical id	: 0
+siblings	: 2
+core id		: 0
+cpu cores	: 2
+apicid		: 0
+initial apicid	: 0
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 10
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx constant_tsc arch_perfmon bts aperfmperf pni monitor vmx est tm2 xtpr pdcm dtherm rsb_ctxsw retpoline
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 3325.15
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 32 bits physical, 32 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 14
+model name	: Genuine Intel(R) CPU           T2300  @ 1.66GHz
+stepping	: 8
+microcode	: 0x39
+cpu MHz		: 1667.000
+cache size	: 2048 KB
+physical id	: 0
+siblings	: 2
+core id		: 1
+cpu cores	: 2
+apicid		: 1
+initial apicid	: 1
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 10
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx constant_tsc arch_perfmon bts aperfmperf pni monitor vmx est tm2 xtpr pdcm dtherm rsb_ctxsw retpoline
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 3325.15
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 32 bits physical, 32 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 2058888k(399392k free), swap 4191344k(4002572k free)
+
+vm_info: Java HotSpot(TM) Server VM (25.91-b14) for linux-x86 JRE (1.8.0_91-b14), built on Apr  1 2016 01:01:13 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Sun Oct 28 20:54:53 2018
+elapsed time: 0 seconds (0d 0h 0m 0s)
+
